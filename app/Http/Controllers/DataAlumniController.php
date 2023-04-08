@@ -16,9 +16,13 @@ class DataAlumniController extends Controller
 
     public function store(StoreAlumniRequest $request)
     {
+        $request->authenticate();
+
+        $request->session()->regenerate();
+
         $data = $request->validated();
 
-        $DataAlumni = DataAlumni::create($data);
+        $data_alumnis = DataAlumni::create($data);
 
         Alert::success('Berhasil memasukkan data', 'Terimakasih sudah mengisi data diri');
         return redirect('/data-pribadi');

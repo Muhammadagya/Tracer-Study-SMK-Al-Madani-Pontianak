@@ -35,7 +35,7 @@ Route::get('/register', function () {
     return view('auth.register');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/data-pribadi', function () {
     return view('dashboard-alumni.pengisian-data-pribadi');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -53,6 +53,6 @@ Route::middleware('auth')->group(function () {
 Route::controller(App\Http\Controllers\DataAlumniController::class)->group(function () {
     Route::get('/data-pribadi', 'create');
     Route::post('/data-pribadi', 'store');
-});
+})->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';
