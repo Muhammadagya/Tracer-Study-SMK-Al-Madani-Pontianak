@@ -18,12 +18,13 @@
     <h6 class="font-weight-normal mb-0">6. Dimohon agar mengisi data ini dengan jujur.</h6>
 </div>
 
+@include('sweetalert::alert')
 {{-- Pengisian Data Pribadi --}}
 <div class="col-md-6 mt-4 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
 
-          <x-successs-status class="mb-4" :status="session('message')" />
+          {{-- <x-successs-status class="mb-4" :status="session('message')" /> --}}
 
             <h4 class="card-title">Identitas Diri Alumni/Lulusan</h4>
             <p class="card-description">
@@ -34,20 +35,20 @@
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputName">Masukkan Nama Lengkap Kamu</label>
-                        <input id="nama_alumni" type="text" name="nama_alumni" class="form-control" id="nama_alumni"
+                        <input id="nama_alumni" type="text" name="nama_alumni" required autofocus class="form-control" id="nama_alumni"
                             placeholder="Nama lengkap">
                     </div>
                     <div class="form-group">
                         <label>Kompetensi Keahlian</label>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input id="jurusan" type="radio" name="jurusan" class="form-check-input" value="RPL">
+                                <input id="jurusan" type="radio" name="jurusan" required autofocus class="form-check-input" value="RPL">
                                 Rekayasa Perangkat Lunak (RPL)
                             </label>
                         </div>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input id="jurusan" type="radio" name="jurusan" class="form-check-input" value="TKJ">
+                                <input id="jurusan" type="radio" name="jurusan" required autofocus class="form-check-input" value="TKJ">
                                 Teknik Komputer dan Jaringan (TKJ)
                             </label>
                         </div>
@@ -57,39 +58,39 @@
                         <p class="card-description">
                             Contoh: 2023
                         </p>
-                        <input id="tahun_lulus" type="text" name="tahun_lulus" class="form-control"placeholder="Tahun lulus">
+                        <input id="tahun_lulus" type="text" name="tahun_lulus" required autofocus class="form-control"placeholder="Tahun lulus">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputUsername1">Alamat Rumah Saat Ini</label>
-                        <input id="alamat_rumah" type="text" name="alamat_rumah" class="form-control" placeholder="Alamat rumah">
+                        <input id="alamat_rumah" type="text" name="alamat_rumah" required autofocus class="form-control" placeholder="Alamat rumah">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputUsername1">Nomor Telepon/Hp</label>
-                        <input id="nomor_telepon" type="text" name="nomor_telepon" class="form-control" placeholder="Nomor telepon/hp yang aktif">
+                        <input id="nomor_telepon" type="text" name="nomor_telepon" required autofocus class="form-control" placeholder="Nomor telepon/hp yang aktif">
                     </div>
                     <div class="form-group">
                         <label>Kegiatan Kamu Saat Ini Setelah Lulus</label>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input id="setelah_lulus" type="radio" name="setelah_lulus" class="form-check-input" value="Bekerja">
+                                <input id="setelah_lulus" type="radio" name="setelah_lulus" required autofocus class="form-check-input" value="Bekerja">
                                 Bekerja
                             </label>
                         </div>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input id="setelah_lulus" type="radio" name="setelah_lulus" class="form-check-input" value="Wirausaha">
+                                <input id="setelah_lulus" type="radio" name="setelah_lulus" required autofocus class="form-check-input" value="Wirausaha">
                                 Wirausaha
                             </label>
                         </div>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input id="setelah_lulus" type="radio" name="setelah_lulus" class="form-check-input" value="Kuliah">
+                                <input id="setelah_lulus" type="radio" name="setelah_lulus" required autofocus class="form-check-input" value="Kuliah">
                                 Kuliah
                             </label>
                         </div>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input id="setelah_lulus" type="radio" name="setelah_lulus" class="form-check-input" value="Belum Bekerja/Kuliah">
+                                <input id="setelah_lulus" type="radio" name="setelah_lulus" required autofocus class="form-check-input" value="Belum Bekerja/Kuliah">
                                 Belum Bekerja/Kuliah
                             </label>
                         </div>

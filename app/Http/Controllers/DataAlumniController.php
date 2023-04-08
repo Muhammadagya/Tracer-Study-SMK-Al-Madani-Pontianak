@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAlumniRequest;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\DataAlumni;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,9 @@ class DataAlumniController extends Controller
     {
         $data = $request->validated();
 
-        $alumni = DataAlumni::create($data);
-        return redirect('/data-pribadi')->with('message', 'Data berhasil dimasukkan!');
+        $DataAlumni = DataAlumni::create($data);
+
+        Alert::success('Berhasil memasukkan data', 'Terimakasih sudah mengisi data diri');
+        return redirect('/data-pribadi');
     }
 }
