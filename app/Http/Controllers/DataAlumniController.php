@@ -16,10 +16,6 @@ class DataAlumniController extends Controller
 
     public function store(StoreAlumniRequest $request)
     {
-        $request->authenticate();
-
-        $request->session()->regenerate();
-
         $data = $request->validated();
 
         $data_alumnis = DataAlumni::create($data);

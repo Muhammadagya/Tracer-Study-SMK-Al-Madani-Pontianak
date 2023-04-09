@@ -19,14 +19,11 @@
     <h6 class="font-weight-normal mb-0">6. Dimohon agar mengisi data ini dengan jujur.</h6>
 </div>
 
-@include('sweetalert::alert')
+{{-- @include('sweetalert::alert') --}}
 {{-- Pengisian Data Pribadi --}}
 <div class="col-md-6 mt-4 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-
-          {{-- <x-successs-status class="mb-4" :status="session('message')" /> --}}
-
             <h4 class="card-title">Identitas Diri Alumni/Lulusan</h4>
             <p class="card-description">
                 Isilah form di bawah ini dengan sebenar-benarnya
@@ -36,20 +33,20 @@
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputName">Masukkan Nama Lengkap Kamu</label>
-                        <input id="nama_alumni" type="text" name="nama_alumni" required autofocus class="form-control" id="nama_alumni"
+                        <input id="nama_alumni" type="text" name="nama_alumni" autofocus class="form-control" id="nama_alumni"
                             placeholder="Nama lengkap">
                     </div>
                     <div class="form-group">
                         <label>Kompetensi Keahlian</label>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input id="jurusan" type="radio" name="jurusan" required autofocus class="form-check-input" value="RPL">
+                                <input id="jurusan" type="radio" name="jurusan" autofocus class="form-check-input" value="RPL">
                                 Rekayasa Perangkat Lunak (RPL)
                             </label>
                         </div>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input id="jurusan" type="radio" name="jurusan" required autofocus class="form-check-input" value="TKJ">
+                                <input id="jurusan" type="radio" name="jurusan" autofocus class="form-check-input" value="TKJ">
                                 Teknik Komputer dan Jaringan (TKJ)
                             </label>
                         </div>
@@ -59,39 +56,39 @@
                         <p class="card-description">
                             Contoh: 2023
                         </p>
-                        <input id="tahun_lulus" type="text" name="tahun_lulus" required autofocus class="form-control"placeholder="Tahun lulus">
+                        <input id="tahun_lulus" type="text" name="tahun_lulus" autofocus class="form-control"placeholder="Tahun lulus">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputUsername1">Alamat Rumah Saat Ini</label>
-                        <input id="alamat_rumah" type="text" name="alamat_rumah" required autofocus class="form-control" placeholder="Alamat rumah">
+                        <input id="alamat_rumah" type="text" name="alamat_rumah" autofocus class="form-control" placeholder="Alamat rumah">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputUsername1">Nomor Telepon/Hp</label>
-                        <input id="nomor_telepon" type="text" name="nomor_telepon" required autofocus class="form-control" placeholder="Nomor telepon/hp yang aktif">
+                        <input id="nomor_telepon" type="text" name="nomor_telepon" autofocus class="form-control" placeholder="Nomor telepon/hp yang aktif">
                     </div>
                     <div class="form-group">
                         <label>Kegiatan Kamu Saat Ini Setelah Lulus</label>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input id="setelah_lulus" type="radio" name="setelah_lulus" required autofocus class="form-check-input" value="Bekerja">
+                                <input id="setelah_lulus" type="radio" name="setelah_lulus" autofocus class="form-check-input" value="Bekerja">
                                 Bekerja
                             </label>
                         </div>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input id="setelah_lulus" type="radio" name="setelah_lulus" required autofocus class="form-check-input" value="Wirausaha">
+                                <input id="setelah_lulus" type="radio" name="setelah_lulus" autofocus class="form-check-input" value="Wirausaha">
                                 Wirausaha
                             </label>
                         </div>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input id="setelah_lulus" type="radio" name="setelah_lulus" required autofocus class="form-check-input" value="Kuliah">
+                                <input id="setelah_lulus" type="radio" name="setelah_lulus" autofocus class="form-check-input" value="Kuliah">
                                 Kuliah
                             </label>
                         </div>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input id="setelah_lulus" type="radio" name="setelah_lulus" required autofocus class="form-check-input" value="Belum Bekerja/Kuliah">
+                                <input id="setelah_lulus" type="radio" name="setelah_lulus" autofocus class="form-check-input" value="Belum Bekerja/Kuliah">
                                 Belum Bekerja/Kuliah
                             </label>
                         </div>
@@ -103,6 +100,7 @@
     </div>
 </div>
 
+{{-- @include('sweetalert::alert') --}}
 {{-- Pengisian Data Pekerjaan --}}
 <div class="col-md-6 mt-4 grid-margin stretch-card">
     <div class="card">
@@ -111,18 +109,19 @@
             <p class="card-description">
                 Isilah form di bawah ini dengan sebenar-benarnya
             </p>
-            <form class="forms-sample">
+            <form action="/data-pribadi" method="POST">
+                @csrf
                 <div class="form-group">
                     <label for="exampleInputUsername1">Nama Perusahaan / Industri / Lembaga</label>
-                    <input type="text" class="form-control" id="exampleInputNameCompany" placeholder="Jawaban kamu">
+                    <input id="companyName" type="text" name="nama_perusahaan" class="form-control" placeholder="Jawaban kamu">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Alamat Perusahaan / Industri / Lembaga</label>
-                    <input type="text" class="form-control" id="" placeholder="Jawaban kamu">
+                    <input id="companyAddress" type="text" name="alamat_perusahaan" class="form-control" placeholder="Jawaban kamu">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Nomor Telp. Perusahaan / Industri / Lembaga</label>
-                    <input type="text" class="form-control" id="Telephone" placeholder="Jawaban kamu">
+                    <input id="companyTelephone" type="text" name="nomor_telepon" class="form-control" placeholder="Jawaban kamu">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputConfirmPassword1" class="mb-0">Sektor Perusahaan / Industri /
@@ -130,36 +129,36 @@
                     <p class="card-description">
                         Contoh: Manufacture, Jasa, Keuangan, dsb.
                     </p>
-                    <input type="text" class="form-control" id="" placeholder="Jawaban kamu">
+                    <input id="companySector" type="text" name="sektor_perusahaan"  class="form-control"placeholder="Jawaban kamu">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1" class="mb-0">Bulan dan Tahun Masuk Kerja</label>
                     <p class="card-description">
                         Contoh: Januari 2023
                     </p>
-                    <input type="text" class="form-control" id="" placeholder="Jawaban kamu">
+                    <input id="monthandyearEntertheCompany" type="text" name="bulan_tahun_masuk_kerja" class="form-control" placeholder="Jawaban kamu">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Jabatan</label>
-                    <input type="text" class="form-control" id="" placeholder="Jawaban kamu">
+                    <input id="position" type="text" name="jabatan" class="form-control" placeholder="Jawaban kamu">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Deskripsi Pekerjaan</label>
-                    <input type="text" class="form-control" id="" placeholder="Jawaban kamu">
+                    <input id="description" type="text" name="deskripsi_kerja" class="form-control" placeholder="Jawaban kamu">
                 </div>
                 <div class="form-group">
                     <label>Sesuai Dengan Kompetensi Keahlian</label>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="komptensiKeahlian"
-                                id="komptensiKeahlian1" value="">
+                            <input id="sesuai_jurusan" type="radio" name="sesuai_jurusan" class="form-check-input"
+                                value="Ya">
                             Ya
                         </label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="komptensiKeahlian"
-                                id="komptensiKeahlian2" value="">
+                            <input id="sesuai_jurusan" type="radio" name="sesuai_jurusan" class="form-check-input"
+                                value="Tidak">
                             Tidak
                         </label>
                     </div>
@@ -168,31 +167,31 @@
                     <label>Besar Gaji</label>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="besarGaji" id="besarGaji1" value="">
+                            <input id="besar_gaji" type="radio" name="besar_gaji" class="form-check-input" value="Kurang dari Rp. 500.000">
                             Kurang dari Rp. 500.000
                         </label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="besarGaji" id="besarGaji2" value="">
+                            <input id="besar_gaji" type="radio" name="besar_gaji" class="form-check-input" value="Antara Rp. 500.000, — Rp. 1.000.000">
                             Antara Rp. 500.000, — Rp. 1.000.000
                         </label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="besarGaji" id="besarGaji3" value="">
+                            <input id="besar_gaji" type="radio" name="besar_gaji" class="form-check-input" value="Antara Rp. 1.000.000, — Rp. 1.500.000">
                             Antara Rp. 1.000.000, — Rp. 1.500.000
                         </label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="besarGaji" id="besarGaji4" value="">
+                            <input id="besar_gaji" type="radio" name="besar_gaji" class="form-check-input" value="Antara Rp. 1.500.000, — Rp. 2.000.000">
                             Antara Rp. 1.500.000, — Rp. 2.000.000
                         </label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="besarGaji" id="besarGaji5" value="">
+                            <input id="besar_gaji" type="radio" name="besar_gaji" class="form-check-input" value="Di atas Rp. 2.000.000">
                             Di atas Rp. 2.000.000
                         </label>
                     </div>

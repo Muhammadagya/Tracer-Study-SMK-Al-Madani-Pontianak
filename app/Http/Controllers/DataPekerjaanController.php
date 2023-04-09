@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePekerjaanRequest;
+use RealRashid\SweetAlert\Facades\Alert;
+use App\Models\DataPekerjaan;
 use Illuminate\Http\Request;
 
 class DataPekerjaanController extends Controller
@@ -11,13 +14,13 @@ class DataPekerjaanController extends Controller
         return view('dashboard-alumni.pengisian-data-pribadi');
     }
 
-    // public function store(StoreAlumniRequest $request)
-    // {
-    //     $data = $request->validated();
+    public function store(StorePekerjaanRequest $request)
+    {
+        $data = $request->validated();
 
-    //     $data_alumnis = DataAlumni::create($data);
+        $data_pekerjaans = DataPekerjaan::create($data);
 
-    //     Alert::success('Berhasil memasukkan data', 'Terimakasih sudah mengisi data diri');
-    //     return redirect('/data-pribadi');
-    // }
+        Alert::success('Berhasil memasukkan data', 'Terimakasih sudah mengisi data tentang pekerjaan kamu');
+        return redirect('/data-pribadi');
+    }
 }

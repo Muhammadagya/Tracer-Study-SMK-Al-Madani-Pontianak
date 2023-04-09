@@ -35,13 +35,18 @@ Route::get('/register', function () {
     return view('auth.register');
 });
 
+// NITIP
+// Route::get('/data-pribadi', function () {
+//     return view('dashboard-alumni.pengisian-data-pribadi');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
 Route::get('/data-pribadi', function () {
     return view('dashboard-alumni.pengisian-data-pribadi');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified']);
 
 Route::get('/pengisian-kusioner', function () {
     return view('dashboard-alumni.pengisian-kusioner');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified']);
 
 
 Route::middleware('auth')->group(function () {
@@ -53,6 +58,12 @@ Route::middleware('auth')->group(function () {
 Route::controller(App\Http\Controllers\DataAlumniController::class)->group(function () {
     Route::get('/data-pribadi', 'create');
     Route::post('/data-pribadi', 'store');
-})->middleware(['auth', 'verified']);
+});
+
+
+Route::controller(App\Http\Controllers\DataPekerjaanController::class)->group(function () {
+    Route::get('/data-pribadi', 'create');
+    Route::post('/data-pribadi', 'store');
+});
 
 require __DIR__.'/auth.php';
