@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Alumni;
+use App\Models\DataAlumni;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -52,6 +53,15 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+        ]);
+
+        $data_alumni = DataAlumni::create([
+            'user_id' => $user->id,
+            'nama_alumni' => $check->nama_lengkap,
+            'nisn' => $check->nisn,
+            'nis' => $check->nis,
+            'tanggal_lahir' => $check->tanggal_lahir,
+            'tempat_lahir' => $check->tempat_lahir,
         ]);
 
         event(new Registered($user));

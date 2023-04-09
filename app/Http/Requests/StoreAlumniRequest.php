@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreAlumniRequest extends FormRequest
@@ -24,28 +23,28 @@ class StoreAlumniRequest extends FormRequest
     {
         return [
             'nama_alumni' => [
-                // 'required',
+                'required',
                 'max:100'
             ],
             'jurusan' => [
-                // 'required',
+                'required',
                 'max:30'
             ],
             'tahun_lulus' => [
-                // 'required',
+                'required',
                 'max:4'
             ],
             'alamat_rumah' => [
-                // 'required',
+                'required',
+                'max:100'
+            ],
+            'setelah_lulus' => [
+                'required',
                 'max:100'
             ],
             'nomor_telepon' => [
-                // 'required',
+                'required',
                 'max:16'
-            ],
-            'setelah_lulus' => [
-                // 'required',
-                'max:100'
             ]
         ];
     }

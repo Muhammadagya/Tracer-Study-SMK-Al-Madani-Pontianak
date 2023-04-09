@@ -17,7 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const DASHBOARDALUMNI = '/data-pribadi';
+    public const DASHBOARDALUMNI = '/identitas';
 
     public const REGISTER = '/register';
 
