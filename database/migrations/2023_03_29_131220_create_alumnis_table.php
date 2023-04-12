@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('nisn', 10);
             $table->integer('nis');
             $table->string('nama_lengkap', 100);
+            $table->string('jurusan', 10);
+            $table->integer('tahun_lulus');
             $table->date('tanggal_lahir');
             $table->string('tempat_lahir', 100);
             $table->timestamps();

@@ -62,6 +62,8 @@ class RegisteredUserController extends Controller
             'nis' => $check->nis,
             'tanggal_lahir' => $check->tanggal_lahir,
             'tempat_lahir' => $check->tempat_lahir,
+            'jurusan' => $check->jurusan,
+            'tahun_lulus' => $check->tahun_lulus,
         ]);
 
         event(new Registered($user));

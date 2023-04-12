@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataAlumniController;
+use App\Http\Controllers\DataKusionerController;
 use App\Http\Controllers\DataPekerjaanController;
 use App\Models\DataAlumni;
 
@@ -42,9 +43,9 @@ Route::get('/register', function () {
 //     return view('dashboard-alumni.pengisian-data-pribadi');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/pengisian-kusioner', function () {
-    return view('dashboard-alumni.pengisian-kusioner');
-})->middleware(['auth', 'verified']);
+// Route::get('/pengisian-kusioner', function () {
+//     return view('dashboard-alumni.pengisian-kusioner');
+// })->middleware(['auth', 'verified']);
 
 
 Route::middleware('auth')->group(function () {
@@ -54,12 +55,15 @@ Route::middleware('auth')->group(function () {
 });
  
 Route::middleware('auth')->group(function () {
-    Route::get('/identitas', [DataAlumniController::class, 'create'])->name('dashboard.identitas');
-    Route::post('/identitas', [DataAlumniController::class, 'store']);
-    Route::get('/identitas/bekerja', [DataPekerjaanController::class, 'create'])->name('dashboard.identitas.bekerja');
-    Route::post('/identitas/bekerja', [DataPekerjaanController::class, 'store']);
+    Route::get('/identitas', [DataAlumniController::class, 'edit'])->name('dashboard.identitas');
+    Route::post('/identitas', [DataAlumniController::class, 'update']);
+    Route::get('/identitas/bekerja', [DataPekerjaanController::class, 'edit'])->name('dashboard.identitas.bekerja');
+    Route::post('/identitas/bekerja', [DataPekerjaanController::class, 'update']);
     // Route::get('/identitas/kuliah', [DataPekerjaanController::class, 'create'])->name('dashboard.identitas.kuliah');
     // Route::post('/identitas/kuliah', [DataPekerjaanController::class, 'store']);
+
+    Route::get('/kusioner', [DataKusionerController::class, 'edit'])->name('dashboard.kusioner');
+    Route::post('/kusioner', [DataKusionerController::class, 'update']);
 });
 
 require __DIR__.'/auth.php';

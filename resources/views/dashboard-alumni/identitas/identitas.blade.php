@@ -20,7 +20,7 @@
     <h6 class="font-weight-normal mb-0">6. Dimohon agar mengisi data ini dengan jujur.</h6>
 </div>
 {{-- Pengisian Data Pribadi --}}
-<div class="col-md-6 mt-4 grid-margin stretch-card">
+<div class="justify-content-center col-md-6 mt-4 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
 
@@ -33,36 +33,6 @@
             {{-- <form class="forms-sample"> --}}
             <form action="#" method="POST">
                 @csrf
-                <div class="form-group">
-                    <label for="exampleInputName">Masukkan Nama Lengkap Kamu</label>
-                    <input id="nama_alumni" type="text" name="nama_alumni" required autofocus class="form-control"
-                        id="nama_alumni" placeholder="Nama lengkap">
-                </div>
-                <div class="form-group">
-                    <label>Kompetensi Keahlian</label>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input id="jurusan" type="radio" name="jurusan" required autofocus class="form-check-input"
-                                value="RPL">
-                            Rekayasa Perangkat Lunak (RPL)
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input id="jurusan" type="radio" name="jurusan" required autofocus class="form-check-input"
-                                value="TKJ">
-                            Teknik Komputer dan Jaringan (TKJ)
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputYear" class="mb-0">Tahun Lulus</label>
-                    <p class="card-description">
-                        Contoh: 2023
-                    </p>
-                    <input id="tahun_lulus" type="text" name="tahun_lulus" required autofocus class="form-control"
-                        placeholder="Tahun lulus">
-                </div>
                 <div class="form-group">
                     <label for="exampleInputUsername1">Alamat Rumah Saat Ini</label>
                     <input id="alamat_rumah" type="text" name="alamat_rumah" required autofocus class="form-control"

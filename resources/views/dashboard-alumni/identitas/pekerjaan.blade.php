@@ -27,7 +27,7 @@
             <p class="card-description">
                 Isilah form di bawah ini dengan sebenar-benarnya
             </p>
-            <form action="/isi-data-pekerjaan" method="POST">
+            <form action="#" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="exampleInputUsername1">Nama Perusahaan / Industri / Lembaga</label>
@@ -39,7 +39,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Nomor Telp. Perusahaan / Industri / Lembaga</label>
-                    <input id="companyTelephone" type="text" name="nomor_telepon" class="form-control" placeholder="Jawaban kamu">
+                    <input id="companyTelephone" type="text" name="nomor_telepon_perusahaan" class="form-control" placeholder="Jawaban kamu">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputConfirmPassword1" class="mb-0">Sektor Perusahaan / Industri /
@@ -66,53 +66,20 @@
                 </div>
                 <div class="form-group">
                     <label>Sesuai Dengan Kompetensi Keahlian</label>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input id="sesuai_jurusan" type="radio" name="sesuai_jurusan" class="form-check-input"
-                                value="Ya">
-                            Ya
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input id="sesuai_jurusan" type="radio" name="sesuai_jurusan" class="form-check-input"
-                                value="Tidak">
-                            Tidak
-                        </label>
-                    </div>
+                    <select name="sesuai_jurusan" class="form-control">
+                        <option value="1">Iya</option>
+                        <option value="2">Tidak</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label>Besar Gaji</label>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input id="besar_gaji" type="radio" name="besar_gaji" class="form-check-input" value="Kurang dari Rp. 500.000">
-                            Kurang dari Rp. 500.000
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input id="besar_gaji" type="radio" name="besar_gaji" class="form-check-input" value="Antara Rp. 500.000, — Rp. 1.000.000">
-                            Antara Rp. 500.000, — Rp. 1.000.000
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input id="besar_gaji" type="radio" name="besar_gaji" class="form-check-input" value="Antara Rp. 1.000.000, — Rp. 1.500.000">
-                            Antara Rp. 1.000.000, — Rp. 1.500.000
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input id="besar_gaji" type="radio" name="besar_gaji" class="form-check-input" value="Antara Rp. 1.500.000, — Rp. 2.000.000">
-                            Antara Rp. 1.500.000, — Rp. 2.000.000
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input id="besar_gaji" type="radio" name="besar_gaji" class="form-check-input" value="Di atas Rp. 2.000.000">
-                            Di atas Rp. 2.000.000
-                        </label>
-                    </div>
+                    <select name="besar_gaji" class="form-control">
+                        <option value="1">Kurang dari Rp. 500.000</option>
+                        <option value="2">Antara Rp. 500.000 - Rp. 1.000.000</option>
+                        <option value="3">Antara Rp. 1.000.000 - Rp. 1.500.000</option>
+                        <option value="4">Antara Rp. 1.500.000 - Rp. 2.000.000</option>
+                        <option value="5">Di atas Rp. 2.000.000</option>
+                    </select>
                 </div>
 
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>

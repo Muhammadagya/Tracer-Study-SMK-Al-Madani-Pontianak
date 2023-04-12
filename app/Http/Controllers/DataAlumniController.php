@@ -9,27 +9,15 @@ use Illuminate\Http\Request;
 
 class DataAlumniController extends Controller
 {
-    public function create()
+    public function edit()
     {
         return view('dashboard-alumni.identitas.identitas');
     }
 
-    public function store(Request $request)
+    public function update(Request $request)
     {
-
         $data = $request->validate([
-            'nama_alumni' => [
-                'required',
-                'max:100'
-            ],
-            'jurusan' => [
-                'required',
-                'max:30'
-            ],
-            'tahun_lulus' => [
-                'required',
-                'max:4'
-            ],
+            // Identitas Alumni
             'alamat_rumah' => [
                 'required',
                 'max:100'
@@ -41,17 +29,15 @@ class DataAlumniController extends Controller
             'nomor_telepon' => [
                 'required',
                 'max:16'
-            ]
+            ],
         ]);
 
         $data_alumni = auth()->user()->data_alumni;
 
-        $data_alumni->nama_alumni = $request->nama_alumni;
-        $data_alumni->jurusan = $request->jurusan;
-        $data_alumni->tahun_lulus = $request->tahun_lulus;
         $data_alumni->alamat_rumah = $request->alamat_rumah;
         $data_alumni->setelah_lulus = $request->setelah_lulus;
         $data_alumni->nomor_telepon = $request->nomor_telepon;
+        // $data_alumni->nomor_telepon = $request->nomor_telepon;
         $data_alumni->save();
 
         Alert::success('Berhasil memasukkan data', 'Terimakasih sudah mengisi data diri');
@@ -65,6 +51,5 @@ class DataAlumniController extends Controller
         } else if($request->setelah_lulus==4){
             return 'ini ww';
         }
-        
     }
 }

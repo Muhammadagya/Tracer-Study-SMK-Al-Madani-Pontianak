@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StorePekerjaanRequest;
 use RealRashid\SweetAlert\Facades\Alert;
-use App\Models\DataPekerjaan;
 use Illuminate\Http\Request;
 
-class DataPekerjaanController extends Controller
+class DataKusionerController extends Controller
 {
     public function edit()
     {
-        return view('dashboard-alumni.identitas.pekerjaan');
+        return view('dashboard-alumni.identitas.kusioner');
     }
 
     public function update(Request $request)
@@ -55,9 +53,9 @@ class DataPekerjaanController extends Controller
                 'max:50'
             ]
         ]);
-
+    
         $data_alumni = auth()->user()->data_alumni;
-
+    
         $data_alumni->nama_perusahaan = $request->nama_perusahaan;
         $data_alumni->alamat_perusahaan = $request->alamat_perusahaan;
         $data_alumni->nomor_telepon_perusahaan = $request->nomor_telepon_perusahaan;
@@ -68,7 +66,7 @@ class DataPekerjaanController extends Controller
         $data_alumni->sesuai_jurusan = $request->sesuai_jurusan;
         $data_alumni->besar_gaji = $request->besar_gaji;
         $data_alumni->save();
-
+    
         Alert::success('Berhasil memasukkan data', 'Terimakasih sudah mengisi data informasi pekerjaan kamu');
         return redirect('/identitas');
     }
