@@ -31,15 +31,15 @@
                 @csrf
                 <div class="form-group">
                     <label for="exampleInputUsername1">Nama Perusahaan / Industri / Lembaga</label>
-                    <input id="companyName" type="text" name="nama_perusahaan" class="form-control" placeholder="Jawaban kamu">
+                    <input id="companyName" type="text" name="nama_perusahaan" required autofocus class="form-control" placeholder="Jawaban kamu">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Alamat Perusahaan / Industri / Lembaga</label>
-                    <input id="companyAddress" type="text" name="alamat_perusahaan" class="form-control" placeholder="Jawaban kamu">
+                    <input id="companyAddress" type="text" name="alamat_perusahaan" required autofocus class="form-control" placeholder="Jawaban kamu">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Nomor Telp. Perusahaan / Industri / Lembaga</label>
-                    <input id="companyTelephone" type="text" name="nomor_telepon_perusahaan" class="form-control" placeholder="Jawaban kamu">
+                    <input id="companyTelephone" type="text" name="nomor_telepon_perusahaan" required autofocus class="form-control" placeholder="Jawaban kamu">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputConfirmPassword1" class="mb-0">Sektor Perusahaan / Industri /
@@ -47,33 +47,33 @@
                     <p class="card-description">
                         Contoh: Manufacture, Jasa, Keuangan, dsb.
                     </p>
-                    <input id="companySector" type="text" name="sektor_perusahaan"  class="form-control"placeholder="Jawaban kamu">
+                    <input id="companySector" type="text" name="sektor_perusahaan" required autofocus class="form-control"placeholder="Jawaban kamu">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1" class="mb-0">Bulan dan Tahun Masuk Kerja</label>
                     <p class="card-description">
                         Contoh: Januari 2023
                     </p>
-                    <input id="monthandyearEntertheCompany" type="text" name="bulan_tahun_masuk_kerja" class="form-control" placeholder="Jawaban kamu">
+                    <input id="monthandyearEntertheCompany" type="text" name="bulan_tahun_masuk_kerja" required autofocus class="form-control" placeholder="Jawaban kamu">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Jabatan</label>
-                    <input id="position" type="text" name="jabatan" class="form-control" placeholder="Jawaban kamu">
+                    <input id="position" type="text" name="jabatan" required autofocus class="form-control" placeholder="Jawaban kamu">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Deskripsi Pekerjaan</label>
-                    <input id="description" type="text" name="deskripsi_kerja" class="form-control" placeholder="Jawaban kamu">
+                    <input id="description" type="text" name="deskripsi_kerja" required autofocus class="form-control" placeholder="Jawaban kamu">
                 </div>
                 <div class="form-group">
                     <label>Sesuai Dengan Kompetensi Keahlian</label>
-                    <select name="sesuai_jurusan" class="form-control">
+                    <select name="sesuai_jurusan" required autofocus class="form-control">
                         <option value="1">Iya</option>
                         <option value="2">Tidak</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Besar Gaji</label>
-                    <select name="besar_gaji" class="form-control">
+                    <select name="besar_gaji" required autofocus class="form-control">
                         <option value="1">Kurang dari Rp. 500.000</option>
                         <option value="2">Antara Rp. 500.000 - Rp. 1.000.000</option>
                         <option value="3">Antara Rp. 1.000.000 - Rp. 1.500.000</option>

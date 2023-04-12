@@ -24,12 +24,12 @@ class DataAlumniController extends Controller
             ],
             'setelah_lulus' => [
                 'required',
-                'string'
+                'numeric'
             ],
             'nomor_telepon' => [
                 'required',
                 'max:16'
-            ],
+            ]
         ]);
 
         $data_alumni = auth()->user()->data_alumni;
@@ -45,11 +45,11 @@ class DataAlumniController extends Controller
         if($request->setelah_lulus==1){
             return redirect()->route('dashboard.identitas.bekerja');
         } else if($request->setelah_lulus==2){
-            return 'ini wirausaha';
+            return redirect()->route('dashboard.identitas.kuliah');
         } else if($request->setelah_lulus==3){
-            return 'ini ww';
+            return redirect()->route('dashboard.identitas.wirausaha');
         } else if($request->setelah_lulus==4){
-            return 'ini ww';
+            return redirect()->route('dashboard.identitas.belum');
         }
     }
 }

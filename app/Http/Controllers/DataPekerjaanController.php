@@ -14,6 +14,11 @@ class DataPekerjaanController extends Controller
         return view('dashboard-alumni.identitas.pekerjaan');
     }
 
+    public function ambil()
+    {
+        return view('dashboard-alumni.identitas.pekerjaan');
+    }
+
     public function update(Request $request)
     {
         $data = $request->validate([
@@ -48,11 +53,11 @@ class DataPekerjaanController extends Controller
             ],
             'sesuai_jurusan' => [
                 'required',
-                'max:10'
+                'numeric'
             ],
             'besar_gaji' => [
                 'required',
-                'max:50'
+                'numeric'
             ]
         ]);
 

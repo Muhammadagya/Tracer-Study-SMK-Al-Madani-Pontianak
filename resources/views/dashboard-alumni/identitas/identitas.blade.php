@@ -35,21 +35,21 @@
                 @csrf
                 <div class="form-group">
                     <label for="exampleInputUsername1">Alamat Rumah Saat Ini</label>
-                    <input id="alamat_rumah" type="text" name="alamat_rumah" required autofocus class="form-control"
+                    <input id="alamat_rumah" type="text" name="alamat_rumah" value="{{ auth()->user()->data_alumni->alamat_rumah }}" required autofocus class="form-control"
                         placeholder="Alamat rumah">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputUsername1">Nomor Telepon/Hp</label>
-                    <input id="nomor_telepon" type="text" name="nomor_telepon" required autofocus class="form-control"
+                    <input id="nomor_telepon" type="text" name="nomor_telepon" value="{{ auth()->user()->data_alumni->nomor_telepon }}" required autofocus class="form-control"
                         placeholder="Nomor telepon/hp yang aktif">
                 </div>
                 <div class="form-group">
                     <label>Kegiatan Kamu Saat Ini Setelah Lulus</label>
                     <select name="setelah_lulus" class="form-control">
-                        <option value="1">Bekerja</option>
-                        <option value="2">Wirausaha</option>
-                        <option value="3">Kuliah</option>
-                        <option value="4">Belum Bekerja/Kuliah</option>
+                        <option @if (auth()->user()->data_alumni->setelah_lulus == '1') {{ 'selected' }} @endif value="1">Bekerja</option>
+                        <option @if (auth()->user()->data_alumni->setelah_lulus == '2') {{ 'selected' }} @endif value="2">Kuliah</option>
+                        <option @if (auth()->user()->data_alumni->setelah_lulus == '3') {{ 'selected' }} @endif value="3">Wirausaha</option>
+                        <option @if (auth()->user()->data_alumni->setelah_lulus == '4') {{ 'selected' }} @endif value="4">Belum Bekerja/Kuliah</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>

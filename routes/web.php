@@ -3,8 +3,11 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataAlumniController;
+use App\Http\Controllers\DataBelumController;
+use App\Http\Controllers\DataKuliahController;
 use App\Http\Controllers\DataKusionerController;
 use App\Http\Controllers\DataPekerjaanController;
+use App\Http\Controllers\DataWirausahaController;
 use App\Models\DataAlumni;
 
 /*
@@ -55,13 +58,29 @@ Route::middleware('auth')->group(function () {
 });
  
 Route::middleware('auth')->group(function () {
+    // identitas alumni
     Route::get('/identitas', [DataAlumniController::class, 'edit'])->name('dashboard.identitas');
     Route::post('/identitas', [DataAlumniController::class, 'update']);
-    Route::get('/identitas/bekerja', [DataPekerjaanController::class, 'edit'])->name('dashboard.identitas.bekerja');
-    Route::post('/identitas/bekerja', [DataPekerjaanController::class, 'update']);
-    // Route::get('/identitas/kuliah', [DataPekerjaanController::class, 'create'])->name('dashboard.identitas.kuliah');
-    // Route::post('/identitas/kuliah', [DataPekerjaanController::class, 'store']);
 
+    // informasi pekerjaan alumni
+    // Route::get('/identitas/bekerja', [DataPekerjaanController::class, 'edit'])->name('dashboard.identitas.bekerja');
+    Route::get('/identitas/edit', [DataPekerjaanController::class, 'edit'])->name('dashboard.identitas.editbekerja');
+    Route::get('/identitas/bekerja', [DataPekerjaanController::class, 'ambil'])->name('dashboard.identitas.bekerja');
+    Route::post('/identitas/bekerja', [DataPekerjaanController::class, 'update']);
+
+    // informasi kuliah alumni
+    Route::get('/identitas/kuliah', [DataKuliahController::class, 'edit'])->name('dashboard.identitas.kuliah');
+    Route::post('/identitas/kuliah', [DataKuliahController::class, 'update']);
+
+    // informasi alumni wirausaha
+    Route::get('/identitas/wirausaha', [DataWirausahaController::class, 'edit'])->name('dashboard.identitas.wirausaha');
+    Route::post('/identitas/wirausaha', [DataWirausahaController::class, 'update']);
+
+    // informasi alumni yang belum kerja atau kuliah
+    Route::get('/identitas/belum-kerja-atau-kuliah', [DataBelumController::class, 'edit'])->name('dashboard.identitas.belum');
+    Route::post('/identitas/belum-kerja-atau-kuliah', [DataBelumController::class, 'update']);
+
+    // pengisian kusioner
     Route::get('/kusioner', [DataKusionerController::class, 'edit'])->name('dashboard.kusioner');
     Route::post('/kusioner', [DataKusionerController::class, 'update']);
 });
